@@ -18,9 +18,25 @@ export default {
   },
   methods: {
     getSearchResult(item) {
-      this.$store.dispatch('updateArtistInfo', item.item);
-      this.$refs.searchContent.classList.add('home-search--totop');
-      this.$refs.homeContent.classList.add('home-content--visible');
+      if (item) {
+        this.$store.dispatch('updateArtistInfo', item.item);
+        this.$refs.searchContent.classList.remove('home-search--todown');
+        this.$refs.searchContent.classList.add('home-search--totop');
+        this.$refs.homeContent.classList.add('home-content--visible');
+        setTimeout(() => {
+          this.$refs.searchContent.classList.add('box-top');
+          this.$refs.searchContent.classList.remove('box-middle');
+        }, 1500);
+      } else {
+        this.$store.dispatch('updateArtistInfo', {});
+        this.$refs.homeContent.classList.remove('home-content--visible');
+        this.$refs.searchContent.classList.remove('home-search--totop');
+        this.$refs.searchContent.classList.add('home-search--todown');
+        setTimeout(() => {
+          this.$refs.searchContent.classList.remove('box-top');
+          this.$refs.searchContent.classList.add('box-middle');
+        }, 1500);
+      }
     },
   },
 };
@@ -28,7 +44,7 @@ export default {
 
 <template>
   <div class="home">
-    <div class="home-search" ref="searchContent">
+    <div class="home-search box-middle" ref="searchContent">
       <div class="home-search--wrap">
         <AutoComplete
           :api-endpoint="apiArtistInfo"
@@ -51,6 +67,12 @@ export default {
   }
 }
 
+@keyframes slide-down {
+  100% {
+    margin-top: calc(50vh - 30px);
+  }
+}
+
 .home {
   align-items: center;
   display: flex;
@@ -66,24 +88,31 @@ export default {
     width: 100%;
 
     &--visible {
-      margin-top: pxToRem(20);
+      margin-top: pxToRem(38);
       opacity: 1;
       transition: opacity 1s ease-in .5s;
       visibility: visible;
       -moz-transition: opacity 1s ease-in .5s;
       -webkit-transition: opacity 1s ease-in .5s;
+
+      .home-search {
+        margin-top: 0;
+      }
     }
   }
 
   &-search {
     display: flex;
     justify-content: center;
-    margin-top: calc(50vh - 30px);
     width: 100%;
 
     &--wrap {
       position: relative;
       width: 80%;
+
+      @media(max-width: 620px) {
+        width: 100%;
+      }
     }
 
     &--totop {
@@ -91,6 +120,22 @@ export default {
       animation-duration: 1.2s;
       animation-fill-mode: forwards;
     }
+
+    &--todown {
+      animation-name: slide-down;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.box {
+  &-middle {
+    margin-top: calc(50vh - 30px);
+  }
+
+  &-top {
+    margin-top: 0;
   }
 }
 </style>

@@ -1,19 +1,21 @@
 <script>
+import AppFooter from '@/components/common/Footer/AppFooter.vue';
+
 export default {
   name: 'App-home',
+  components: {
+    AppFooter,
+  },
 };
 </script>
 
 <template>
-  <section class="home-container" id="app">
-    <!--header><h2>Head</h2></header-->
+  <div class="home-container" id="app">
     <main class="home-container--content" role="main">
       <router-view/>
     </main>
-    <footer>
-      <h4>adasdas</h4>
-    </footer>
-  </section>
+    <AppFooter />
+  </div>
 </template>
 
 <style lang="scss">

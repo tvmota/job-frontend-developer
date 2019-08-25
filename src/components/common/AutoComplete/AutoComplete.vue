@@ -62,6 +62,10 @@ export default {
             this.autoCompleteOpt.showLoading = false;
           });
       }
+
+      if (searchParam.length < 1) {
+        this.selectedOption('');
+      }
     },
     selectedOption(item) {
       this.$emit('get-result', item);
@@ -125,6 +129,10 @@ export default {
   &:selection {
     background: $color-primary;
     color: $color-white;
+  }
+
+  @media(max-width: 620px) {
+    font-size: pxToRem(18);
   }
 }
 

@@ -24,7 +24,12 @@ export default new Vuex.Store({
   actions: {
     updateArtistInfo({ dispatch, commit }, info) {
       commit('SET_ARTIST_INFO', info);
-      dispatch('updateArtistVideos', info.name);
+
+      if (Object.keys(info).length > 0) {
+        dispatch('updateArtistVideos', info.name);
+      } else {
+        commit('SET_ARTIST_VIDEOS', []);
+      }
     },
     updateArtistVideos({ commit }, artistName) {
       artistVideosService.getVideos(artistName).then((resp) => {

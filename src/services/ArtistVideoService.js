@@ -5,7 +5,7 @@ const getVideos = async (searchParam) => {
     params: {
       alt: 'json',
       key: 'AIzaSyDd_sfvQ4NASb-k0oKYAr_g9FZcQILtyKc',
-      maxResults: 18,
+      maxResults: 12,
       part: 'snippet',
       prettyPrint: true,
       order: 'relevance',
