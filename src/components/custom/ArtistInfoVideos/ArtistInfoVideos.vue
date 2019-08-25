@@ -36,24 +36,28 @@ export default {
             socialArr.push({
               lnk: externalLinks[key][0].url,
               icon: this.fbIcon.id,
+              title: 'facebook',
             });
             break;
           case 'homepage':
             socialArr.push({
               lnk: externalLinks[key][0].url,
               icon: this.siteIcon.id,
+              title: 'homepage',
             });
             break;
           case 'twitter':
             socialArr.push({
               lnk: externalLinks[key][0].url,
               icon: this.twtIcon.id,
+              title: 'twitter',
             });
             break;
           case 'youtube':
             socialArr.push({
               lnk: externalLinks[key][0].url,
               icon: this.ytIcon.id,
+              title: 'youtube',
             });
             break;
           default:
@@ -91,7 +95,8 @@ export default {
               :href="socialInfo.lnk"
               :key="socialInfo.lnk"
               v-for="socialInfo in socialIcons"
-              target="_blank">
+              target="_blank"
+              :title="socialInfo.title">
                 <svg class="icone icone-lg" role="presentation">
                   <use :xlink:href="'#' + socialInfo.icon"></use>
                 </svg>

@@ -16,16 +16,19 @@ export default {
 </script>
 
 <template>
-  <div class="card-video c-hand">
-    <div class="card-video--header">
-      <img
-      :alt="info.snippet.title"
-      :src="info.snippet.thumbnails.medium.url">
-      <div class="card-video-img--description">
-        <h4>{{ fmtTitle }}</h4>
+  <router-link
+    class="card-video c-hand"
+    tag="div"
+    :to="{ name: 'detail', params: { videoId: info.id.videoId }}">
+      <div class="card-video--header">
+        <img
+          :alt="info.snippet.title"
+          :src="info.snippet.thumbnails.medium.url">
+        <div class="card-video-img--description">
+          <h4>{{ fmtTitle }}</h4>
+        </div>
       </div>
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <style lang="scss">
@@ -58,6 +61,8 @@ export default {
     justify-content: flex-end;
     left: 0;
     opacity: 0;
+    padding-bottom: pxToRem(6);
+    padding-left: pxToRem(6);
     position: absolute;
     right: 0;
     text-align: left;

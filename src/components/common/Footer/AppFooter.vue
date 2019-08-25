@@ -7,9 +7,9 @@ export default {
   <footer class="container-footer" role="contentinfo">
     <a
       class="container-footer--link"
-      href="https://github.com/tvmota/challenge-easycarros"
+      href="https://github.com/tvmota/job-frontend-developer"
       target="_blank"
-      title="Codigo fonte">
+      title="Src">
         GitHub
     </a>
   </footer>

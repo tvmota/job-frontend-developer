@@ -12,7 +12,9 @@ export default {
 <template>
   <div class="home-container" id="app">
     <main class="home-container--content" role="main">
-      <router-view/>
+      <keep-alive include="home">
+        <router-view/>
+      </keep-alive>
     </main>
     <AppFooter />
   </div>
