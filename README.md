@@ -3,6 +3,9 @@
 
 Projeto para teste frontend developer, com integrações com as API's do [APIs do Youtube](https://developers.google.com/youtube/v3/getting-started) e [TicketMaster](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/), para procura de artistas e exibição de seus videos no youtube.
 
+## [DEMO](https://app-search-artist.netlify.com)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/87ce821e-7d43-47cd-99c2-58276e3d3f90/deploy-status)](https://app.netlify.com/sites/app-search-artist/deploys)
+
 ## Instruções de para instalação das dependncias
 ### OBS: É necessário ter ou instalar o nodejs, e caso deseje o yarn
 ```bash

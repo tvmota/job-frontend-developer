@@ -8,7 +8,7 @@ const getVideos = async (searchParam) => {
       maxResults: 12,
       part: 'snippet',
       prettyPrint: true,
-      order: 'rating',
+      order: 'relevance',
       q: searchParam,
       safeSearch: 'moderate',
       type: 'video',

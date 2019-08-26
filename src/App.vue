@@ -36,6 +36,10 @@ export default {
     padding: pxToRem(20) pxToRem(30);
     overflow-y: auto;
     width: 100%;
+
+    @media(max-width: 600px) {
+      justify-content: center;
+    }
   }
 }
 </style>
